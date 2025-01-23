@@ -37,7 +37,8 @@ struct AppState {
 async fn main() -> std::io::Result<()> {
     let args = cli::parse_cli();
 
-    println!("Configuration: {args}");
+
+                    println!("Configuration: {args}");
 
     let scanner_caps = match args.scanner_caps_file {
         Some(file) => std::fs::read_to_string(file).expect("Couldn't read specified file"),
