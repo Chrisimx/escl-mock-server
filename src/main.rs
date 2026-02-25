@@ -31,6 +31,7 @@ struct AppState {
     scanner_caps: String,
     image_path: Option<String>,
     scan_jobs: Mutex<HashMap<Uuid, ScanJob>>,
+    returned_images: u32
 }
 
 #[actix_web::main]
@@ -48,6 +49,7 @@ async fn main() -> std::io::Result<()> {
         scanner_caps,
         image_path: args.served_image,
         scan_jobs: Mutex::new(HashMap::new()),
+        returned_images: args.count
     });
 
     let http_server = HttpServer::new(move || {

@@ -67,7 +67,7 @@ async fn next_doc(
 
     println!("Document job data: {}", data_guard.get(uuid).unwrap());
 
-    if data_guard.get(uuid).unwrap().retrieved_pages > 20 {
+    if data_guard.get(uuid).unwrap().retrieved_pages > data.returned_images {
         return HttpResponse::NotFound().finish();
     }
 
